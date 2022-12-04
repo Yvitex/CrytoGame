@@ -1,0 +1,21 @@
+$black-color: #181D27;
+$yellow-color: #D0DB97;
+
+@font-face {
+  font-family: RetroGaming;
+  src: url("../public/fonts/Retro\ Gaming.ttf");
+}
+
+
+body {
+  margin: 0;
+  font-family: RetroGaming , sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $black-color;
+  color: white;
+  margin: 8px 64px;
+  box-sizing: border-box;
+  max-width: 1300px;
+}
+

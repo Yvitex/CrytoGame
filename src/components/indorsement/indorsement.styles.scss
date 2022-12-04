@@ -1,0 +1,59 @@
+.indorsement_container {
+    text-align: center;
+    font-size: 24px;
+    margin: 124px 16px !important;
+    position: relative;
+
+    .pacman1 {
+        z-index: -1;
+        position: absolute;
+        width: 120px;
+        left: -30px;
+        rotate: -32deg;
+        top: 0px;
+    }
+
+    .pacman2 {
+        z-index: -1;
+        position: absolute;
+        width: 120px;
+        rotate: 32deg;
+        transform: rotateY(180deg);
+        bottom: -60px;
+        right: 32px;
+    }
+
+    .coin {
+        width: 30px;
+    }
+
+}
+
+@media (min-width: 720px) {
+    .indorsement_container {
+        text-align: center;
+        font-size: 40px;
+        margin: 64px 32px 0;
+
+        .pacman1 {
+            z-index: -1;
+            position: absolute;
+            left: -30px;
+            rotate: -32deg;
+            top: -100px;
+            width: 220px;
+        }
+
+        .pacman2 {
+            z-index: -1;
+            position: absolute;
+            width: 220px;
+            rotate: 32deg;
+            transform: rotateY(180deg);
+            bottom: -120px;
+            right: 32px;
+        }
+    }
+
+    
+}

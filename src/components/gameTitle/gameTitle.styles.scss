@@ -1,0 +1,60 @@
+.header_container {
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr);
+
+    .game_title_container {
+        text-align: center;
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 0;
+        }
+    
+        p {
+            margin-top: 16px;
+            margin-bottom: 48px;
+        }
+
+        .circle {
+            z-index: -1;
+            position: absolute;
+            top: 40px;
+            right: 250px;
+            width: 310px;
+            opacity: 0.3;
+        }
+
+
+        .square {
+            z-index: -1;
+            position: absolute;
+            top: 360px;
+            right: 120px;
+            width: 100px;
+            opacity: 0.4;
+
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .header_container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(2rem, 1fr));
+
+        .game_title_container {
+            text-align: end;
+    
+            .game_title_text {
+                font-size: 64px;
+                margin-bottom: 0;
+            }
+        
+            .intro_text {
+                margin-top: 16px;
+                margin-bottom: 48px;
+            }
+        }
+    }
+}
+
