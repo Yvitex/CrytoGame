@@ -4,35 +4,69 @@
     align-items: center;
 
     img {
-        width: 200px;
+        width: 100px;
+        position: absolute;
     }
 
     .rick {
-        rotate: 60deg;
-        position: absolute;
-        z-index: -1;
-        width: 120px;
+        visibility: hidden;
     }
 
     .pacman_ghost {
-        z-index: -1;
-        position: absolute;
-        rotate: -30deg;
-        transform: rotateY(180deg);
-        width: 160px;
+       visibility: hidden;
     }
 
     .circle2 {
-        position: absolute;
-        z-index: -1;
-        width: 120px;
-        opacity: 1;
+        visibility: hidden;
     }
 
     .square2 {
-        position: absolute;
-        width: 100px;
-        rotate: 45deg;
-        z-index: -1;
+        visibility: hidden;
     }
+}
+
+@media (min-width: 720px) {
+    .world_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        img {
+            width: 200px;
+        }
+    
+        .rick {
+            visibility: visible;
+            rotate: 60deg;
+            position: absolute;
+            z-index: -1;
+            width: 120px;
+        }
+    
+        .pacman_ghost {
+            visibility: visible;
+            z-index: -1;
+            position: absolute;
+            rotate: -30deg;
+            transform: rotateY(180deg);
+            width: 160px;
+        }
+    
+        .circle2 {
+            visibility: visible;
+            position: absolute;
+            z-index: -1;
+            width: 120px;
+            opacity: 1;
+        }
+    
+        .square2 {
+            visibility: visible;
+            position: absolute;
+            width: 100px;
+            rotate: 45deg;
+            z-index: -1;
+        }
+    }
+    
 }

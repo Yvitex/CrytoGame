@@ -6,12 +6,15 @@
     .navigation {
         display: flex;
         justify-content: space-between;
-        width: 300px;
+        flex-wrap: wrap;
+        width: 100%;
         font-size: 16px;
+        // border: white solid;
 
         .navigation_text {
             padding: 0 8px;
             cursor: pointer;
+            font-size: 12px;
 
             &:hover {
                 background-color: #ffffff33;
@@ -24,7 +27,7 @@
     }
 }
 
-@media screen {
+@media (min-width: 720px) {
     .navigation_container {
         .navigation {
             width: 650px;

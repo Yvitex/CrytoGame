@@ -1,0 +1,27 @@
+.title_meta_container {
+    width: 100%;
+    
+    h1 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 8px;
+    }
+}
+
+
+
+@media (min-width: 720px) {
+    .title_meta_container {
+        
+        h1 {
+            font-size: 32px;
+        }
+    
+        p {
+            font-size: 16px;
+        }
+    }
+    
+}

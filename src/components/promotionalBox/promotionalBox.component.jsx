@@ -51,7 +51,7 @@ const PromotionalBox = () => {
     return (
         <div className="promotional_box_container">
             <World />
-        <div>
+            <div>
             <ContentButton 
                 title="Promo:" 
                 intro="Get a chance to  win 10 tokens by saying Hello on the community chatbox" 

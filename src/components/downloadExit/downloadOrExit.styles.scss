@@ -1,16 +1,20 @@
 .play_container {
     max-width: 900px;
-    margin: auto;
+    margin: 16px;
+
+    h1 {
+        font-size: 16px;
+    }
 
     .download_or_exit_container {
         background-color: #69B578;
-        padding: 16px 32px;
+        padding: 8px 16px;
         border-radius: 24px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         color: #254D32;
-        height: 400px;
+        height: auto;
     
         .icon_button {
             display: flex;
@@ -20,9 +24,40 @@
             margin: 0;
             
             .icon {
-                width: 60px;
+                width: 26px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media (min-width: 720px) {
+    .play_container {
+        max-width: 900px;
+        margin: auto;
+    
+        .download_or_exit_container {
+            background-color: #69B578;
+            padding: 16px 32px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #254D32;
+            height: 400px;
+        
+            .icon_button {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 padding: 0;
                 margin: 0;
+                
+                .icon {
+                    width: 60px;
+                    padding: 0;
+                    margin: 0;
+                }
             }
         }
     }

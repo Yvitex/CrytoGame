@@ -3,3 +3,15 @@
         margin: 16px 0;
     }
 }
+
+@media screen {
+    .requirement_container {
+        h2 {
+            font-size: 12px;
+        }
+
+        li {
+            font-size: 12px;
+        }
+    }
+}
