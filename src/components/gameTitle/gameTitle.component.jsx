@@ -48,7 +48,7 @@ const GameTitle = ({title, intro, buttonText}) => {
                 opacity: 1
             })
 
-            .fromTo(".playButton", {
+            .fromTo(".game_title_container .playButton", {
                 y: 100,
                 opacity: 0
             }, {
@@ -81,7 +81,7 @@ const GameTitle = ({title, intro, buttonText}) => {
                <CoinModel />
             </div>
             <div className="game_title_container">
-                <ContentButton title={title} intro={intro} buttonText={buttonText} animated={true} />
+                <ContentButton title={title} intro={intro} buttonText={buttonText} animated={true} navigateUrl="/play" />
                 <Circle className="circle" />
                 <Square className="square"/>
             </div>

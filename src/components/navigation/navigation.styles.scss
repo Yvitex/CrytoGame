@@ -11,6 +11,15 @@
 
         .navigation_text {
             padding: 0 8px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #ffffff33;
+            }
+        }
+
+        .hidden {
+            display: none;
         }
     }
 }

@@ -3,8 +3,7 @@ import ContentButton from "../contentButton/contentButton.component";
 import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import {ReactComponent as Circle} from "../../assets/svg/circle.svg"
-import { ReactComponent as Square } from "../../assets/svg/square.svg";
+import World from "../world/world.component";
 
 const PromotionalBox = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,21 +50,15 @@ const PromotionalBox = () => {
 
     return (
         <div className="promotional_box_container">
-            <div className="world_container">
-                <img src="/world.png" alt="Earth" />
-                <img className="rick" src="/never_gonna.png" alt="Never Gonna Give you Up" />
-                <img className="pacman_ghost" src="pacman.png" alt="Pacman Ghost" />
-                <Circle className="circle2" />
-                <Square className="square2" />
-            </div>
-            <div>
-                <ContentButton 
-                    title="Promo:" 
-                    intro="Get a chance to  win 10 tokens by saying Hello on the community chatbox" 
-                    buttonText="Send Hello"
-                    buttonClass="darkGreenButton"
-                />
-            </div>
+            <World />
+        <div>
+            <ContentButton 
+                title="Promo:" 
+                intro="Get a chance to  win 10 tokens by saying Hello on the community chatbox" 
+                buttonText="Send Hello"
+                buttonClass="darkGreenButton"
+            />
+        </div>
         </div>
     )
 }

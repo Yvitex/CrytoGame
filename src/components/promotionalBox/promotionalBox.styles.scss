@@ -10,44 +10,7 @@
     z-index: -1;
     text-align: center;
 
-    .world_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            width: 200px;
-        }
-
-        .rick {
-            rotate: 60deg;
-            position: absolute;
-            z-index: -1;
-            width: 120px;
-        }
-
-        .pacman_ghost {
-            z-index: -1;
-            position: absolute;
-            rotate: -30deg;
-            transform: rotateY(180deg);
-            width: 160px;
-        }
-
-        .circle2 {
-            position: absolute;
-            z-index: -1;
-            width: 120px;
-            opacity: 1;
-        }
-
-        .square2 {
-            position: absolute;
-            width: 100px;
-            rotate: 45deg;
-            z-index: -1;
-        }
-    }
+    
 }
 
 @media (min-width: 720px) {
@@ -58,5 +21,6 @@
         position: relative;
         z-index: -1;
         text-align: left;
+        height: 250px;
     }
 }
