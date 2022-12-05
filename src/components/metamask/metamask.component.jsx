@@ -84,10 +84,10 @@ const Metamask = () => {
         <div className="metamask_container">
             <p>LogIn With Metamask</p>
             <MetamaskIcon />
-            <Button buttonText={user !== null ? "Logged In" : "Log In"} otherOnClick={logInWithMetamask} />
+            <Button buttonText={user !== null ? user.toString().slice(0, 6) + "..." : "Log In"} otherOnClick={logInWithMetamask} />
 
             {!ethereum && (
-                <a href="https://metamask.io/download/" target="_blank">
+                <a href="https://metamask.io/download/" rel="noreferrer" target="_blank">
                     <Button buttonText="Install Metamask" />
                 </a>)}
         </div>
