@@ -3,6 +3,7 @@ import Indorsement from "../components/indorsement/indorsement.component";
 import PromotionalBox from "../components/promotionalBox/promotionalBox.component";
 
 const Home = () => {
+ 
     return (
         <div>
              <GameTitle 

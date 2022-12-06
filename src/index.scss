@@ -14,7 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $black-color;
   color: white;
-  margin: 8px 64px;
+  margin: 8px 32px;
   box-sizing: border-box;
   max-width: 1300px;
 }
@@ -22,5 +22,12 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+
+@media (min-width: 720px) {
+  body {
+    margin: 8px 64px;
+  }
 }
 

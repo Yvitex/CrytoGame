@@ -4,6 +4,7 @@ import NavigationRoute from './routes/navigation.route';
 import Home from './routes/home.route';
 import Play from './routes/play.route';
 import Buy from './routes/buy.route';
+import CommunityChatbox from './routes/communityChatbox.route';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='play' element={<Play />} />
         <Route path='buy' element={<Buy />} />
+        <Route path='community' element={<CommunityChatbox />} />
       </ Route>
 
     </Routes>

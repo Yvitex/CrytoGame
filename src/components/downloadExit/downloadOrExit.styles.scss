@@ -35,6 +35,10 @@
     .play_container {
         max-width: 900px;
         margin: auto;
+
+        h1 {
+            font-size: 32px;
+        }
     
         .download_or_exit_container {
             background-color: #69B578;

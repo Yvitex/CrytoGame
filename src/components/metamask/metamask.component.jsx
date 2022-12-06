@@ -6,13 +6,14 @@ import { UserContext } from "../../context/user.context";
 import { useContext } from "react";
 import gsap from "gsap";
 import { Back } from "gsap";
+import { TokenContext } from "../../context/token.context";
+import { initContract } from "../../utils/initializeContract";
 
 const findMetamaskAccount = async () => {
     try {
         const {ethereum} = window;
 
         if(!ethereum) {
-            alert("Please Install Metamask");
             return null;
         }
 
@@ -39,6 +40,7 @@ const findMetamaskAccount = async () => {
 const Metamask = () => {
     const {ethereum} = window;
     const {setUser, user} = useContext(UserContext);
+    const {setWebsiteContract, websiteContract} = useContext(TokenContext);
 
     useEffect(() => {
         const fetchAccounts = async() => {
@@ -46,6 +48,23 @@ const Metamask = () => {
             setUser(account);
         }
         fetchAccounts();
+    }, [])
+
+    useEffect(() => {
+        const initWebsiteContract = async() => {
+            try {
+
+                if(!websiteContract) {
+                    setWebsiteContract(initContract());
+                }
+
+            } catch (error) {
+                console.log(error);
+                return;
+            }
+        }
+
+        initWebsiteContract();
     }, [])
 
 

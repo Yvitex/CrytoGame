@@ -1,0 +1,43 @@
+.face_container {
+    // border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+
+    
+    p {
+        padding: 0;
+        margin: 0;
+        margin-top: 8px;
+    }
+
+
+    .pos {
+        color: green;
+        font-size: 12px;
+    }
+
+    .neg {
+        color: red;
+        font-size: 12px;
+    }
+
+}
+
+@media (min-width: 720px) {
+    .face_container {
+        width: 58px;
+
+        .pos {
+            font-size: 16px;
+        }
+    
+        .neg {
+            font-size: 16px;
+        }
+    }
+
+
+}

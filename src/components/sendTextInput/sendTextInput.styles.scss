@@ -1,0 +1,58 @@
+.send_text_input_container {
+    // border: white solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+
+
+    .send_text_input {
+        background-color: #181D27;
+        height: 80%;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        text-align: center;
+        font-size: 24px;
+        font-family: "RetroGaming", sans-serif;
+        color: white;
+        width: 90%;
+        padding: 8px;
+        margin: 0;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .send_text_input_button {
+        background-color: #1E2635;
+        color: white;
+        height: 130%;
+        width: 10%;
+        font-size: 16px;
+        margin: 0;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding: 8px;
+
+        &:focus {
+            stroke: white !important;
+        }
+
+        &:hover {
+            background-color: green;
+        }
+
+        svg {
+            outline: none;
+            stroke: transparent;
+            stroke-width: 0px;
+            width: 100%;
+
+            &:hover {
+                transform: scale(110%);
+                transition-duration: 0.3s;
+            }
+        }
+    }
+}

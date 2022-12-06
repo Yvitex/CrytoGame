@@ -81,7 +81,13 @@ const GameTitle = ({title, intro, buttonText}) => {
                <CoinModel />
             </div>
             <div className="game_title_container">
-                <ContentButton title={title} intro={intro} buttonText={buttonText} animated={true} navigateUrl="/play" />
+                <ContentButton 
+                    title={title} 
+                    intro={intro} 
+                    buttonText={buttonText} 
+                    animated={true} 
+                    navigateUrl="/play" 
+                />
                 <Circle className="circle" />
                 <Square className="square"/>
             </div>

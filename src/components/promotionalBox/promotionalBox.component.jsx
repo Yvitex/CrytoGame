@@ -57,6 +57,7 @@ const PromotionalBox = () => {
                 intro="Get a chance to  win 10 tokens by saying Hello on the community chatbox" 
                 buttonText="Send Hello"
                 buttonClass="darkGreenButton"
+                navigateUrl="/community" 
             />
         </div>
         </div>
