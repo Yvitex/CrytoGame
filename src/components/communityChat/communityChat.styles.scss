@@ -2,7 +2,11 @@
     max-width: 800px;
     margin: auto;
 
-
+    .spinner {
+        margin: auto;
+        text-align: center;
+        margin-top: 8px;
+    }
 
     .lock_message {
         display: flex;

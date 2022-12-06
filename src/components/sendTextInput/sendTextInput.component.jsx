@@ -1,16 +1,12 @@
 import "./sendTextInput.styles.scss";
 import {ReactComponent as Send} from "../../assets/svg/Send.svg";
-import { useContext, useEffect } from "react";
-import { UserContext } from "../../context/user.context";
 
-
-const SendTextInput = ({onClickButton}) => {
-
+const SendTextInput = ({onClickButton, handleChange}) => {
 
     return (
         <div className="send_text_input_container">
-            <input className="send_text_input" />
-            <button className="send_text_input_button">
+            <input onChange={handleChange} className="send_text_input" />
+            <button onClick={onClickButton} className="send_text_input_button">
                 <Send />
             </button>
         </div>

@@ -1,10 +1,10 @@
 import "./spinner.styles.scss";
 
-const Spinner = () => {
+const Spinner = ({textLoading="Loading..."}) => {
     return (
-        <div>
+        <div className="spinner">
             <div className="lds-circle"><div></div></div>
-            <p>Loading...</p>
+            <p>{textLoading}</p>
         </div>
     )
 }

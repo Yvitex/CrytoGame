@@ -53,7 +53,6 @@ const Metamask = () => {
     useEffect(() => {
         const initWebsiteContract = async() => {
             try {
-
                 if(!websiteContract) {
                     setWebsiteContract(initContract());
                 }

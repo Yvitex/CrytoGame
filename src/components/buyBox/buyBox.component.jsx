@@ -47,22 +47,14 @@ const BuyBox = () => {
 
     useEffect(() => {
         const initWebsiteContract = async() => {
-            try {
-                const {ethereum} = window;
 
-                if(!ethereum){
-                    setIsLoggingIn(true);
-                    return;
-                }
+            const {ethereum} = window;
 
-                if(!websiteContract) {
-                    setWebsiteContract(initContract());
-                }
-
-            } catch (error) {
-                console.log(error);
+            if(!ethereum){
+                setIsLoggingIn(true);
                 return;
             }
+
         }
 
         initWebsiteContract();
