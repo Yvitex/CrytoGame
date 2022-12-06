@@ -6,8 +6,8 @@ const ChatHead = ({address, text, status}) => {
         <div className="chat_head_container">
             <FaceStatus status={status} />
             <div className="text_container">
-                <p className="address">{address.slice(0, 5) + "..."}</p>
-                <p className="text">{text.slice(0, 40)} {text.length > 40 && "..."}</p>
+                <p className="address">{address.slice(0, 12) + "..."}</p>
+                <p className="text">{text.slice(0, 32)}{text.length > 32 && "..."}</p>
             </div>
         </div>
     )

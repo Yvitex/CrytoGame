@@ -17,40 +17,35 @@ const CommunityChat = ({title}) => {
     const [messageLimit, setMessageLimit] = useState(10);
     const [previousMessages, setPreviousMessages] = useState([]);
 
-    console.log("PRev message " + previousMessages)
-
     useEffect(() => {
         const {ethereum} = window;
         if(!ethereum) {
             setIsLoggingIn(true);
         }
 
-        if(websiteContract) {
-            websiteContract.on("SomebodyWonTokens", announceWinOrLose);
-        }
-
-        return () => {
-            if(websiteContract) {
-                websiteContract.off("SomebodyWonTokens", announceWinOrLose);
-            }
-        }
-
     }, [websiteContract])
 
     useEffect(() => {
         const fetchPreviousMessage = async() => {
-            setIsLoadingMessages(true);
-            if(!websiteContract) {
+            try {
+                setIsLoadingMessages(true);
+                if(!websiteContract) {
+                    return;
+                }
+
+                let waiter = await websiteContract.getAllHello();
+                setPreviousMessages(waiter);
+                setIsLoadingMessages(false);
+            } catch (error) {
+                console.log(error)
+                setIsLoadingMessages(false);
                 return;
             }
-
-            let waiter = await websiteContract.getAllHello();
-            setPreviousMessages(waiter);
-            setIsLoadingMessages(false);
+            
         }
 
         fetchPreviousMessage();
-    }, [isLoadingSend])
+    }, [isLoadingSend, user])
 
     const announceWinOrLose = () => {
         return;
@@ -59,17 +54,23 @@ const CommunityChat = ({title}) => {
     const sendSomething = async (someString) => {
         setIsLoadingSend(true);
 
-        <Spinner />
-        if(!websiteContract) {
-            alert("Contract not Available");
+        try {
+            if(!websiteContract) {
+                alert("Contract not Available");
+                return;
+            }
+    
+            let waiter = await websiteContract.sendHello(someString);
+            await waiter.wait();
+    
+            setIsLoadingSend(false);
+            setMessage("Thank you For Joining");
+        } catch (error) {
+            console.log(error);
+            setIsLoadingSend(false);
             return;
         }
-
-        let waiter = await websiteContract.sendHello(someString);
-        await waiter.wait();
-
-        setIsLoadingSend(false);
-        setMessage("Thank you For Joining");
+        
     }
 
     const handleChange = (event) => {
@@ -93,13 +94,14 @@ const CommunityChat = ({title}) => {
                 <>
                     <h1>{title}</h1>
                     <SendTextInput onClickButton={() => sendSomething(message)} handleChange={handleChange} />
-                    {message.length > 50 && (<p className="error">Recommended input is 40 characters</p>)}
+                    {message.length > 32 && (<p className="error">Recommended input is 32 characters</p>)}
                     {isLoadingSend && <Spinner textLoading="Sending..." />}
-                    {chatRenderer()}
+                    {isLoadingMessages ? (<Spinner />) : chatRenderer()}
                 </> 
             ) : (
                 <div className="lock_message">
                     <h1 className="error">Please Log In Before Using the Community Chat</h1>
+                    <p>Make Sure You are In Georli Network</p>
                     <img src="/lock.png" alt="Lock" />
                 </div>
             )}

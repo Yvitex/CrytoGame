@@ -3,11 +3,12 @@ import {ReactComponent as MetamaskIcon} from "../../assets/svg/metamask.svg";
 import Button from "../button/button.component";
 import { useEffect } from "react";
 import { UserContext } from "../../context/user.context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import gsap from "gsap";
 import { Back } from "gsap";
 import { TokenContext } from "../../context/token.context";
-import { initContract } from "../../utils/initializeContract";
+import { initContract, getChainId } from "../../utils/initializeContract";
+
 
 const findMetamaskAccount = async () => {
     try {
@@ -17,16 +18,13 @@ const findMetamaskAccount = async () => {
             return null;
         }
 
-        console.log("Ethereum Object Fetch of Method findMetamaskAccount: " + ethereum );
         const accounts = await ethereum.request({method: "eth_accounts"});
 
         if(accounts.length !== 0) {
             let account = accounts[0];
-            console.log("Found account on function findMetamaskAccount: " + account);
             return account
         }
         else {
-            console.log("No account on function findMetamaskAccount: ");
             return null;
         }
 
@@ -40,7 +38,7 @@ const findMetamaskAccount = async () => {
 const Metamask = () => {
     const {ethereum} = window;
     const {setUser, user} = useContext(UserContext);
-    const {setWebsiteContract, websiteContract} = useContext(TokenContext);
+    const {setWebsiteContract, websiteContract, chainId, setChainId} = useContext(TokenContext);
 
     useEffect(() => {
         const fetchAccounts = async() => {
@@ -53,9 +51,13 @@ const Metamask = () => {
     useEffect(() => {
         const initWebsiteContract = async() => {
             try {
+                let fetchChainId = await getChainId();
+                setChainId(fetchChainId);
+
                 if(!websiteContract) {
                     setWebsiteContract(initContract());
                 }
+
 
             } catch (error) {
                 console.log(error);
@@ -102,12 +104,19 @@ const Metamask = () => {
         <div className="metamask_container">
             <p>LogIn With Metamask</p>
             <MetamaskIcon />
-            <Button buttonText={user !== null ? user.toString().slice(0, 6) + "..." : "Log In"} otherOnClick={logInWithMetamask} />
-
-            {!ethereum && (
-                <a href="https://metamask.io/download/" rel="noreferrer" target="_blank">
-                    <Button buttonText="Install Metamask" />
-                </a>)}
+            {chainId !== 5 ? (
+            <p>Please Switch to Goerli Test Network</p>
+            ) : (
+                <>
+                    <Button buttonText={user !== null ? user.toString().slice(0, 6) + "..." : "Log In"} otherOnClick={logInWithMetamask} />
+                    {!ethereum && (
+                        <a href="https://metamask.io/download/" rel="noreferrer" target="_blank">
+                            <Button buttonText="Install Metamask" />
+                        </a>
+                        )}
+                </>
+            )}
+            
         </div>
     )
 }
