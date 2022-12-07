@@ -9,13 +9,25 @@ import Spinner from "../spinner/spinner.component";
 
 
 const CommunityChat = ({title}) => {
-    const {setIsLoggingIn, user} = useContext(UserContext);
-    const {websiteContract} = useContext(TokenContext);
+    const {setIsLoggingIn, user, isLoggingIn} = useContext(UserContext);
+    const {websiteContract, chainId} = useContext(TokenContext);
     const [isLoadingSend, setIsLoadingSend] = useState(false);
     const [isLoadingMessages, setIsLoadingMessages] = useState(false);
     const [message, setMessage] = useState("");
     const [messageLimit, setMessageLimit] = useState(10);
     const [previousMessages, setPreviousMessages] = useState([]);
+
+    // useEffect(() => {
+    //     const {ethereum} = window;
+    //     if(ethereum) {
+    //         window.ethereum.on('chainChanged', function(networkId){
+    //             window.location.reload();
+    //         });
+        
+    //     }
+
+
+    // })
 
     useEffect(() => {
         const {ethereum} = window;
@@ -24,6 +36,10 @@ const CommunityChat = ({title}) => {
         }
 
     }, [websiteContract])
+
+    window.ethereum.on('chainChanged', function(networkId){
+        return;
+      });
 
     useEffect(() => {
         const fetchPreviousMessage = async() => {
@@ -45,7 +61,7 @@ const CommunityChat = ({title}) => {
         }
 
         fetchPreviousMessage();
-    }, [isLoadingSend, user])
+    }, [isLoadingSend, user, isLoggingIn, chainId])
 
     const announceWinOrLose = () => {
         return;
@@ -79,7 +95,12 @@ const CommunityChat = ({title}) => {
 
     const chatRenderer = () => {
         let chats = []
-        for(let i = 0; i < previousMessages.length; i++) {
+        let limiter = previousMessages.length;
+        if (previousMessages.length > messageLimit) {
+            limiter = messageLimit;
+        }
+        console.log(limiter)
+        for(let i = limiter - 1; i >= 0; i--) {
             let address = previousMessages[i].sender;
             let message = previousMessages[i].message;
 
@@ -90,7 +111,7 @@ const CommunityChat = ({title}) => {
 
     return (
         <div className="community_chat_container">
-            {user ? (
+            {user && chainId == 5 ? (
                 <>
                     <h1>{title}</h1>
                     <SendTextInput onClickButton={() => sendSomething(message)} handleChange={handleChange} />

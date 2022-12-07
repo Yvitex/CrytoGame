@@ -4,7 +4,7 @@ import abi from "../assets/abi/WebsiteContract.json";
 const contractAddress = "0xfdA8D0c4d7d787edDbD25Fc201F00EDdEd4c57B5";
 const {ethereum} = window;
 
-export const provider = new ethers.providers.Web3Provider(ethereum);
+export const provider = new ethers.providers.Web3Provider(ethereum, "any");
 
 export const initContract = () => {
     const signer = provider.getSigner();

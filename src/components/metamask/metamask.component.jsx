@@ -40,6 +40,11 @@ const Metamask = () => {
     const {setUser, user} = useContext(UserContext);
     const {setWebsiteContract, websiteContract, chainId, setChainId} = useContext(TokenContext);
 
+
+    window.ethereum.on('chainChanged', function(networkId){
+        return;
+      });
+
     useEffect(() => {
         const fetchAccounts = async() => {
             const account = await findMetamaskAccount();
