@@ -16,6 +16,7 @@ const CommunityChat = ({title}) => {
     const [message, setMessage] = useState("");
     const [messageLimit, setMessageLimit] = useState(10);
     const [previousMessages, setPreviousMessages] = useState([]);
+    const {ethereum} = window;
 
     // useEffect(() => {
     //     const {ethereum} = window;
@@ -37,9 +38,13 @@ const CommunityChat = ({title}) => {
 
     }, [websiteContract])
 
-    window.ethereum.on('chainChanged', function(networkId){
-        return;
-      });
+
+    if(ethereum) {
+        window.ethereum.on('chainChanged', function(networkId){
+            return;
+        });
+    }
+
 
     useEffect(() => {
         const fetchPreviousMessage = async() => {
@@ -111,6 +116,7 @@ const CommunityChat = ({title}) => {
 
     return (
         <div className="community_chat_container">
+            {!ethereum && <p>Install Metamask</p>}
             {user && chainId == 5 ? (
                 <>
                     <h1>{title}</h1>
@@ -126,7 +132,6 @@ const CommunityChat = ({title}) => {
                     <img src="/lock.png" alt="Lock" />
                 </div>
             )}
-
         </div>
     )
 }

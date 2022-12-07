@@ -40,11 +40,11 @@ const Metamask = () => {
     const {setUser, user} = useContext(UserContext);
     const {setWebsiteContract, websiteContract, chainId, setChainId} = useContext(TokenContext);
 
-
-    window.ethereum.on('chainChanged', function(networkId){
-        return;
-      });
-
+    if(ethereum) {
+        window.ethereum.on('chainChanged', function(networkId){
+            return;
+          });
+    }
     useEffect(() => {
         const fetchAccounts = async() => {
             const account = await findMetamaskAccount();
@@ -109,18 +109,18 @@ const Metamask = () => {
         <div className="metamask_container">
             <p>LogIn With Metamask</p>
             <MetamaskIcon />
-            {chainId !== 5 ? (
+            {chainId !== 5 && ethereum ? (
             <p>Please Switch to Goerli Test Network</p>
             ) : (
                 <>
                     <Button buttonText={user !== null ? user.toString().slice(0, 6) + "..." : "Log In"} otherOnClick={logInWithMetamask} />
-                    {!ethereum && (
+                </>
+            )}
+                        {!ethereum && (
                         <a href="https://metamask.io/download/" rel="noreferrer" target="_blank">
                             <Button buttonText="Install Metamask" />
                         </a>
                         )}
-                </>
-            )}
             
         </div>
     )
