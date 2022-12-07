@@ -61,7 +61,7 @@ const CommunityChat = ({title}) => {
         }
 
         fetchPreviousMessage();
-    }, [isLoadingSend, user, isLoggingIn, chainId])
+    }, [isLoadingSend, user, chainId])
 
     const announceWinOrLose = () => {
         return;

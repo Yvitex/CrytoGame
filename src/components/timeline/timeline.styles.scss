@@ -1,0 +1,27 @@
+.timeline_contaienr {
+    padding: 16px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    min-height: 270px;
+    margin-top: 25px;
+
+    .heading_container {
+        background-color: #293751;
+        padding: 4px 8px;
+        border-radius: 8px 8px 0px 0px;
+        margin: 0;
+        font-size: 16px;
+
+    }
+
+    .content_container {
+        background-color: #1E2635;
+        margin: 0;
+        padding: 16px 64px;
+        border-radius: 0px 0px 8px 8px;
+        max-height: 150px;
+        font-size: 24px;
+        // border: solid white;
+    }
+}

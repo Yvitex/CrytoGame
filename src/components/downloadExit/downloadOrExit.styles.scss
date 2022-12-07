@@ -7,13 +7,17 @@
     }
 
     .download_or_exit_container {
-        background-color: #69B578;
+        border-radius: 50px;
+        background: linear-gradient(145deg, #161a23, #1a1f2a);
+        box-shadow:  20px 20px 60px #141921,
+                    -20px -20px 60px #1c212d;
+        // background-color: #69B578;
         padding: 8px 16px;
         border-radius: 24px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        color: #254D32;
+        color: white;
         height: auto;
     
         .icon_button {
@@ -41,13 +45,12 @@
         }
     
         .download_or_exit_container {
-            background-color: #69B578;
             padding: 16px 32px;
             border-radius: 24px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            color: #254D32;
+            color: white;
             height: 400px;
         
             .icon_button {

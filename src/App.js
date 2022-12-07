@@ -5,7 +5,7 @@ import Home from './routes/home.route';
 import Play from './routes/play.route';
 import Buy from './routes/buy.route';
 import CommunityChatbox from './routes/communityChatbox.route';
-import { useEffect } from 'react';
+import RoadMap from './routes/roadmap.route';
 import { useContext } from 'react';
 import { TokenContext } from './context/token.context';
 
@@ -23,6 +23,7 @@ function App() {
         <Route path='play' element={<Play />} />
         <Route path='buy' element={<Buy />} />
         <Route path='community' element={<CommunityChatbox />} />
+        <Route path='roadmap' element={<RoadMap />} /> 
       </ Route>
 
     </Routes>
