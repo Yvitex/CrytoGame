@@ -10,11 +10,15 @@ import { useContext } from 'react';
 import { TokenContext } from './context/token.context';
 
 function App() {
-  const {setChainId} = useContext(TokenContext);
+  // const {setChainId} = useContext(TokenContext);
+  // const {ethereum} = window;
 
-  window.ethereum.on('chainChanged', function(networkId){
-    setChainId(parseInt(networkId.split("x")[1]))
-  });
+  // if(ethereum) {
+  //   window.ethereum.on('chainChanged', function(networkId){
+  //     setChainId(parseInt(networkId.split("x")[1]))
+  //   });
+  // }
+
 
   return (
     <Routes>
