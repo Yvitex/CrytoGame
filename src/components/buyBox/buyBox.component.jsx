@@ -8,13 +8,13 @@ import Spinner from "../spinner/spinner.component";
 import { UserContext } from "../../context/user.context";
 import OwnedToken from "../ownedToken/ownedToken.component";
 import { initContract } from "../../utils/initializeContract";
+import { contractAddress } from "../../utils/initializeContract";
 
 const BuyBox = () => {
     const [amount, setAmount] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
     const {websiteContract, setWebsiteContract} = useContext(TokenContext);
     const {setIsLoggingIn} = useContext(UserContext);
-    const contractAddress = "0xfdA8D0c4d7d787edDbD25Fc201F00EDdEd4c57B5";
     const {user} = useContext(UserContext);
     
     const handleOnChange = (event) => {
@@ -65,6 +65,7 @@ const BuyBox = () => {
     return (
         <div className="buy_box_container">
             <p>Buy Token Using Eth</p>
+            <p>Contract Address: {contractAddress}</p>
                 <input 
                     type="number" 
                     value={amount} 

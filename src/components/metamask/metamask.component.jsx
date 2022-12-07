@@ -116,11 +116,11 @@ const Metamask = () => {
                     <Button buttonText={user !== null ? user.toString().slice(0, 6) + "..." : "Log In"} otherOnClick={logInWithMetamask} />
                 </>
             )}
-                        {!ethereum && (
-                        <a href="https://metamask.io/download/" rel="noreferrer" target="_blank">
-                            <Button buttonText="Install Metamask" />
-                        </a>
-                        )}
+            {!ethereum && (
+            <a href="https://metamask.io/download/" rel="noreferrer" target="_blank">
+                <Button buttonText="Install Metamask" />
+            </a>
+            )}
             
         </div>
     )

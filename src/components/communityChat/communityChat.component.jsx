@@ -16,19 +16,8 @@ const CommunityChat = ({title}) => {
     const [message, setMessage] = useState("");
     const [messageLimit, setMessageLimit] = useState(10);
     const [previousMessages, setPreviousMessages] = useState([]);
+    const [trigger, setTrigger] = useState(false);
     const {ethereum} = window;
-
-    // useEffect(() => {
-    //     const {ethereum} = window;
-    //     if(ethereum) {
-    //         window.ethereum.on('chainChanged', function(networkId){
-    //             window.location.reload();
-    //         });
-        
-    //     }
-
-
-    // })
 
     useEffect(() => {
         const {ethereum} = window;
@@ -44,6 +33,20 @@ const CommunityChat = ({title}) => {
             return;
         });
     }
+
+
+
+    useEffect(() => {
+        if(websiteContract) {
+            websiteContract.on("SomebodyWonTokens", announceWinOrLose);
+        }
+
+        return () => {
+            if(websiteContract) {
+                websiteContract.off("SomebodyWonTokens", announceWinOrLose);
+            }
+        }
+    })
 
 
     useEffect(() => {
@@ -64,12 +67,12 @@ const CommunityChat = ({title}) => {
             }
             
         }
-
         fetchPreviousMessage();
-    }, [isLoadingSend, user, chainId])
+
+    }, [user, chainId, trigger])
 
     const announceWinOrLose = () => {
-        return;
+        setTrigger(!trigger);
     }
 
     const sendSomething = async (someString) => {
@@ -104,12 +107,15 @@ const CommunityChat = ({title}) => {
         if (previousMessages.length > messageLimit) {
             limiter = messageLimit;
         }
-        console.log(limiter)
         for(let i = limiter - 1; i >= 0; i--) {
             let address = previousMessages[i].sender;
             let message = previousMessages[i].message;
+            let didWin = previousMessages[i].didWin;
 
-            chats.push(<ChatHead key={i} address={address} text={message} status={false} />)
+            chats.push(<ChatHead key={i} address={address} text={message} status={didWin} />)
+        }
+        if(previousMessages.length == 0) {
+            return <p>No Messages</p>
         }
         return chats;
     }

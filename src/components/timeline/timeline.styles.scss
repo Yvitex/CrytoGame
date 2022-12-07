@@ -1,27 +1,54 @@
-.timeline_contaienr {
+.timeline_container {
     padding: 16px;
-    max-width: 600px;
+    max-width: 500px;
     margin: auto;
     text-align: center;
-    min-height: 270px;
-    margin-top: 25px;
+    min-height: auto;
 
     .heading_container {
         background-color: #293751;
         padding: 4px 8px;
         border-radius: 8px 8px 0px 0px;
         margin: 0;
-        font-size: 16px;
+
+        h2 {
+            font-size: 16px;
+        }
 
     }
 
     .content_container {
         background-color: #1E2635;
         margin: 0;
-        padding: 16px 64px;
+        padding: 8px 32px;
         border-radius: 0px 0px 8px 8px;
-        max-height: 150px;
-        font-size: 24px;
-        // border: solid white;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 720px) {
+    .timeline_container {
+        padding: 16px;
+        margin: auto;
+        text-align: center;
+        min-height: 270px;
+        margin-top: 8px;
+    
+        .heading_container {
+            background-color: #293751;
+            padding: 4px 8px;
+            font-size: 16px;
+
+            h2 {
+                font-size: 32px;
+            }
+    
+        }
+    
+        .content_container {
+            padding: 16px 64px;
+            font-size: 24px;
+            // border: solid white;
+        }
     }
 }

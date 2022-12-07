@@ -18,7 +18,7 @@ const Navigation = () => {
                 <Link to="play"><p className="navigation_text">Play</p></Link>
                 <Link to="buy"><p className="navigation_text">Buy</p></Link>
                 <Link to="roadmap"><p className="navigation_text">Roadmap</p></Link>
-                <p className="navigation_text">White Paper</p>
+                <a href="https://drive.google.com/file/d/1zmF0-k0LlgBV7KomuD8I97jVRzJwfbq_/view?usp=sharing" target="_blank"><p className="navigation_text">White Paper</p></a>
                 <p onClick={openMetamask} className="navigation_text">{isLoggingIn ? "Exit" : "Log In"}</p>
             </div>
         </div>

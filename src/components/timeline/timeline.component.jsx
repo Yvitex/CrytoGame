@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const Timeline = ({date, text}) => {
     useEffect(() => {
-        gsap.fromTo(".timeline_contaienr", {
+        gsap.fromTo(".timeline_container", {
             y: 100,
             opacity: 0
         }, {
@@ -16,12 +16,14 @@ const Timeline = ({date, text}) => {
     })
 
     return (
-        <div className="timeline_contaienr">
-            <div className="heading_container">
-                <h2>{date}</h2>
-            </div>
-            <div className="content_container">
-                <p>{text}</p>
+        <div className="grid_timeline">
+            <div className="timeline_container">
+                <div className="heading_container">
+                    <h2>{date}</h2>
+                </div>
+                <div className="content_container">
+                    <p>{text}</p>
+                </div>
             </div>
         </div>
     )

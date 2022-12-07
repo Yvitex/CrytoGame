@@ -1,7 +1,7 @@
 import { ethers } from "ethers"
 import abi from "../assets/abi/WebsiteContract.json";
 
-const contractAddress = "0xfdA8D0c4d7d787edDbD25Fc201F00EDdEd4c57B5";
+export const contractAddress = "0x5ab631a65080165EcfBf12b430A089AB424736DF";
 const {ethereum} = window;
 
 export const initContract = () => {
