@@ -64,8 +64,8 @@ const BuyBox = () => {
 
     return (
         <div className="buy_box_container">
-            <p>Buy Token Using Eth</p>
-            <p>Contract Address: {contractAddress}</p>
+            <p className="intro">Buy Token Using Eth</p>
+            <p className="contract_address">Contract Address: {contractAddress}</p>
                 <input 
                     type="number" 
                     value={amount} 

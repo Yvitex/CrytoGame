@@ -16,6 +16,16 @@
         color: red;
     }
 
+    p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contract_address {
+        @extend p;
+        word-break: break-all;
+    }
+
 
         input {
             background-color: #181D27;
@@ -45,6 +55,14 @@
             }
         }
     
+}
 
+@media (min-width: 720px) {
+    .buy_box_container {
     
+        .intro {
+            font-size: 24px;
+        }
+
+    }
 }

@@ -10,8 +10,8 @@ const OwnedToken = ({isLoading = false}) => {
     const {user} = useContext(UserContext);
     const {websiteContract, chainId, setChainId} = useContext(TokenContext);
     const [userToken, setUserToken] = useState(0);
-
-    const convertedToken = userToken / Math.pow(10, 18);
+    
+    // const convertedToken = userToken / Math.pow(10, 18);
 
     useEffect(() => {
         const getTokenAmount = async() => {
@@ -45,8 +45,15 @@ const OwnedToken = ({isLoading = false}) => {
     console.log("CHL", chainId);
 
     const displayText = (amount) => {
+        const {ethereum} = window;
 
-        if(chainId !== 5) {
+        console.log(!ethereum)
+
+        if(!ethereum) {
+            return <p>Switch to Goerli Network</p>
+        }
+
+        else if(chainId !== 5) {
             return <p>Switch to Goerli Network</p>
         }
 
@@ -67,7 +74,7 @@ const OwnedToken = ({isLoading = false}) => {
 
     return (
         <div className="owned_token_container">
-            {displayText(convertedToken)}
+            {displayText(userToken / Math.pow(10, 18))}
         </div>
     )
 }
