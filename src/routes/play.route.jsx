@@ -3,7 +3,7 @@ import DownloadOrExitBox from "../components/downloadExit/downloadOrExit.compone
 const Play = () => {
     return (
         <div>
-            <DownloadOrExitBox />
+            <DownloadOrExitBox title="ArcGames.exe" size="71mb" />
         </div>
     )
 }

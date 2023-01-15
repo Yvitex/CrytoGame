@@ -88,7 +88,7 @@ const CommunityChat = ({title}) => {
             await waiter.wait();
     
             setIsLoadingSend(false);
-            setMessage("Thank you For Joining");
+            setMessage("");
         } catch (error) {
             console.log(error);
             setIsLoadingSend(false);
@@ -126,7 +126,7 @@ const CommunityChat = ({title}) => {
             {user && chainId == 5 ? (
                 <>
                     <h1>{title}</h1>
-                    <SendTextInput onClickButton={() => sendSomething(message)} handleChange={handleChange} />
+                    <SendTextInput onClickButton={() => sendSomething(message)} handleChange={handleChange} value={message} />
                     {message.length > 32 && (<p className="error">Recommended input is 32 characters</p>)}
                     {isLoadingSend && <Spinner textLoading="Sending..." />}
                     {isLoadingMessages ? (<Spinner />) : chatRenderer()}

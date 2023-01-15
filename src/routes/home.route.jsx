@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
              <GameTitle 
-                title="Game Title"
+                title="ArcGames"
                 intro="The best arcade games to past time"
                 buttonText="Play"
             />

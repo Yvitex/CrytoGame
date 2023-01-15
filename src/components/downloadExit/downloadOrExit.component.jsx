@@ -5,13 +5,13 @@ import TitleMeta from "../titleMeta/titleMeta.component";
 import Requirement from "../requirement/requirement.component";
 import { Link } from "react-router-dom";
 
-const DownloadOrExitBox = () => {
+const DownloadOrExitBox = ({title, size}) => {
     return (
         <div className="play_container">
             <h1>Download the App Now!</h1>
             <div className="download_or_exit_container">
                 <div className="download_or_exit_content">
-                    <TitleMeta title="Something.exe" meta="Size: 32mb" />
+                    <TitleMeta title={title} meta={`Size: ${size}`} />
                     <Requirement
                         requirementTitle="Software Requirement"
                         rest={[
@@ -23,7 +23,7 @@ const DownloadOrExitBox = () => {
                 </div>
                 <div className="icon_button">
                     <Link to="/"><Exit className="icon" /></Link>
-                    <Download className="icon" />
+                    <a href="https://drive.google.com/u/0/uc?id=1HXWYl9XuOuB8FNRSGtbGhrGi4I7YCZNj&export=download" target="_null"><Download className="icon" /> </a>
                 </div>
             </div>
         </div>
